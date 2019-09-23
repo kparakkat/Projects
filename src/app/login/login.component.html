@@ -1,0 +1,26 @@
+<!-- <p>
+  <h1>Login Screen</h1>
+  <br/>
+  Employee Id: <input type="text" [(ngModel)]="empid" name="empid" id="empid"/>
+  <br/>
+  Password: <input type="text" name="password"/>
+  <br/>
+  <button name="login" style="width: 80px;height:20px;" (click)='doLogin()'>Ok</button>
+  <button name="cancel" style="width: 80px;height:20px;">Cancel</button> -->
+
+
+  <form (ngSubmit)="loginValidate()" [formGroup]="loginForm" novalidate>
+    <div class="form-content">
+      <label>
+        Employee Id:
+        <input type="text" formControlName="empId" class="sd-form-control" placeholder="Enter employee id.">
+      </label>
+      <label>
+        password:
+        <input type="password" formControlName="empPwd" class="sd-form-control" placeholder="Enter the password.">
+      </label>
+      <div class="form-submit">
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
