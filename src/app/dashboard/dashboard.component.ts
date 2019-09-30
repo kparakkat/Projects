@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,14 +7,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  private empId:number;
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.empId = params['empid'];
+    })
   }
 
   loadEmpDetails(): void{
-    this.router.navigateByUrl('/empdetails');
+    this.router.navigate([`/empdetails/${this.empId}`]);
  }
 
+ loadMngrDetails(): void{
+  this.router.navigate([`/managerdetails/${this.empId}`]);
+  }
+
+  loadleaveApplications(): void{
+    this.router.navigate([`/leaveapplications/${this.empId}`]);
+  }
+
+  loadPendingleaves(): void{
+    this.router.navigate([`/pendingleave/${this.empId}`]);
+  }
 }

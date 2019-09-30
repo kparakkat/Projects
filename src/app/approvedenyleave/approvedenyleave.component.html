@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <h3>Approve Deny Leave</h3>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><label>Employee ID</label>: 
+        <label name="empid">{{ empPendLeave.empDetails.emp_id }} </label></td>
+        <td><label>Start Date</label> :
+        <label name="startdate">{{ empPendLeave.pendLeave.start_date | date:'shortDate' }}</label> </td>
+      </tr>
+      <tr>
+        <td><label>Employee Name</label> :
+        <label name="empname">{{ empPendLeave.empDetails.emp_name }}</label></td>
+        <td><label>End Date</label> : 
+        <label name="enddate">{{ empPendLeave.pendLeave.end_date | date:'shortDate' }}</label></td>
+      </tr>
+      <tr>
+        <td><label>Leave Balance</label> :
+        <label name="leavebal">{{ empPendLeave.empDetails.leave_balance }}</label></td> 
+        <td><label>Number of days</label> :
+        <label name="numberofdays">{{ empPendLeave.pendLeave.number_of_days }}</label></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><label>Leave Type</label> :  
+        <label name="leavetype">{{ empPendLeave.pendLeave.leave_type }}</label></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><label>Reason</label> : 
+        <label name="reason">{{ empPendLeave.pendLeave.reasons }}</label></td>
+      </tr>
+      <tr>
+        <td colspan="2"><label>Manager Comments</label> : 
+          <textarea class="form-control" rows="3" [(ngModel)]="empPendLeave.pendLeave.manager_comments" 
+                                      id="manager_comments" name="manager_comments"> 
+          </textarea>
+        </td>
+        <!-- <input type="textarea" [(ngModel)]="empPendLeave.pendLeave.manager_comments" 
+                                    id="manager_comments" name="manager_comments">  -->
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class='btn btn-primary'
+                      style='width:120px;margin-right: 5px;' (click)='performApprove()'>
+                      Approve
+          </button>
+          <button class='btn btn-primary'
+                      style='width:120px;margin-right: 5px;' (click)='performDeny()'>
+                      Deny
+          </button>
+          <button class='btn btn-primary'
+                      style='width:120px' (click)='performCancel()'>
+                      Cancel
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

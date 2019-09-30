@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <h3> My Leave Applications </h3>
+  <table class="table" *ngIf='leaveApplications && leaveApplications.length'>
+    <thead>
+      <tr>
+        <th>LeaveID</th>
+        <th>Number of days</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Leave Type</th>
+        <th>Status</th>
+        <th>Reason</th>
+        <th>Applied On</th>
+        <th>Manager Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let leaveapps of leaveApplications'>
+        <td>{{ leaveapps.leave_id }}</td>
+        <td>{{ leaveapps.number_of_days }}</td>
+        <td>{{ leaveapps.start_date | date:'shortDate'  }}</td>
+        <td>{{ leaveapps.end_date | date:'shortDate' }}</td>
+        <td>{{ leaveapps.leave_type }}</td>
+        <td>{{ leaveapps.leave_status }}</td>
+        <td>{{ leaveapps.reasons }}</td>
+        <td>{{ leaveapps.applied_on | date:'shortDate' }}</td>
+        <td>{{ leaveapps.manager_comments }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class='btn btn-primary'
+            style='width:120px' (click)='loadApplyLeave()'>
+            New Application
+  </button>
+
+</div>

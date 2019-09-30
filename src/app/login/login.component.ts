@@ -34,17 +34,8 @@ export class LoginComponent implements OnInit {
   loginValidate() {    
     const empId = this.loginForm.get('empId').value;    
     const empPwd = this.loginForm.get('empPwd').value;   
-     console.log(empId);    
-     console.log(empPwd);    
      if (empId !== null && empPwd !== null) {      
-       console.log(empId);      
-       console.log(empPwd);      
-       this.router.navigate([`/dashboard/:${empId}`]);    
+       this.router.navigate([`/dashboard/${empId}`]);    
       }  
     }
-
-  // submitForm(): void {
-  //   console.log(this.loginForm);
-  // }
-
 }
