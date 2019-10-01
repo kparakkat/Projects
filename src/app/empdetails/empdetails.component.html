@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <h3>Employee Deatils</h3>
+  <table>
+    <tr>
+      <td><label>Employee ID</label></td>
+      <td>:</td>
+      <td><label name="empid">{{ empDetails.emp_id }} </label></td>
+      <td><label>Date Joined</label></td>
+      <td>:</td>
+      <td><label name="datejoined">{{ empDetails.emp_doj | date:'shortDate' }}</label></td>
+    </tr>
+    <tr>
+      <td><label>Full Name</label></td>
+      <td>:</td>
+      <td><label name="fullname">{{ empDetails.emp_name }}</label></td>
+      <td><label>Department</label></td>
+      <td>:</td>
+      <td><label name="dept">{{ empDetails.emp_dept }}</label></td>
+    </tr>
+    <tr>
+      <td><label>Email Address</label></td>
+      <td>:</td>
+      <td><label name="email">{{ empDetails.emp_mail }}</label></td>
+    </tr>
+    <tr>
+      <td><label>Mobile Number</label></td>
+      <td>:</td>
+      <td><label name="mobile">{{ empDetails.emp_phone }}</label></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><label>Available Leave Balance</label></td>
+      <td>:</td>
+      <td><label name="leavebal">{{ empDetails.leave_balance }}</label></td>
+    </tr>
+  </table>
+</div>

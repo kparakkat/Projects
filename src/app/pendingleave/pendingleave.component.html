@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <h3> My Reporting Employee's Pending Leave Applications Section</h3>
+  <div>
+    <table class="table" *ngIf='repEmps && repEmps.length'>
+      <tbody>
+        <tr *ngFor='let repEmp of repEmps'>
+          <table class="table table-condensed" *ngIf='repEmp.leaveHistory && repEmp.leaveHistory.length' class="table table-hover">
+            <thead>
+                <tr>
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <th>Employee ID</th>
+                        <th style="vertical-align: left">{{ repEmp.emp_id }}</th>
+                        <th>Employee Name</th>
+                        <th style="vertical-align: left">{{ repEmp.emp_name }}</th>
+                        <th>Employee Leave Balance</th>
+                        <th style="vertical-align: left">{{ repEmp.leave_balance }}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>LeaveID</th>
+                      <th>Number of days</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Leave Type</th>
+                      <th>Status</th>
+                      <th>Reason</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor='let leaveHist of repEmp.leaveHistory' 
+                        (click)="setClickedRow(leaveHist.leave_id, leaveHist.emp_id)" 
+                        [class.active]="leaveHist.leave_id == selectedLeaveId">
+                      <td></td>
+                      <td>{{ leaveHist.leave_id }}</td>
+                      <td>{{ leaveHist.number_of_days }}</td>
+                      <td>{{ leaveHist.start_date | date:'shortDate' }}</td>
+                      <td>{{ leaveHist.end_date | date:'shortDate' }}</td>
+                      <td>{{ leaveHist.leave_type }}</td>
+                      <td>{{ leaveHist.leave_status }}</td>
+                      <td>{{ leaveHist.reasons }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </tr>
+            </tbody>
+          </table>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class='btn btn-primary'
+              style='width:120px' (click)='loadApproveDeny()'>
+              Approve/Deny
+  </button>
+</div>
+
+<!-- <div class="well well-lg">
+  Selected Leave Id: <strong> {{selectedLeaveId}}</strong> <br/>
+  Selected Emp Id: <strong> {{selectedEmpId}}</strong>
+</div> -->
